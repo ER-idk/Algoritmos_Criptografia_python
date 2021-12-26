@@ -2,11 +2,13 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def vig_encode(text, keyword):
     encode = str()
+    # Repete a palavra-chave até que tenha o mesmo tamanho da frase a ser criptografada
     while len(keyword) < len(text):
         keyword += keyword
     if len(keyword) > len(text):
         keyword = keyword[:len(text)]
     for i in range(len(text)):
+        # Encontra o indice no alfabeto
         i_alpha = alpha.index(text[i]) + alpha.index((keyword[i]))
         if i_alpha >= len(alpha):
             i_alpha = i_alpha - len(alpha)
